@@ -1,0 +1,20 @@
+@startuml
+title Exploratory Test – De la sélection à la confirmation
+
+start
+:Utilisateur connecté;
+:Parcourir les produits;
+:Sélectionner un produit;
+:Ajouter au panier;
+:Accéder au panier;
+:Choisir méthode de livraison;
+:Valider la commande;
+
+if (Commande confirmée?) then (Oui)
+  :Afficher message de confirmation;
+else (Non)
+  :Afficher message d'erreur;
+endif
+
+stop
+@enduml

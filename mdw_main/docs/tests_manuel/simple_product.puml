@@ -1,0 +1,19 @@
+@startuml
+title Scénario 1 – Produit simple avec livraison standard
+
+start
+:Utilisateur connecté;
+:Choisir un produit;
+:Ajouter au panier;
+:Accéder au panier;
+:Sélectionner livraison standard;
+:Valider la commande;
+
+if (Commande réussie?) then (Oui)
+  :Afficher message "Commande réussie";
+else (Non)
+  :Afficher erreur;
+endif
+
+stop
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+title Scénario 3 – Champ obligatoire vide (adresse de livraison)
+
+start
+:Utilisateur connecté;
+:Ajouter produit au panier;
+:Aller au panier;
+:Passer la commande;
+:Omettre de remplir l'adresse de livraison;
+:Cliquer sur "Valider la commande";
+
+if (Adresse renseignée?) then (Oui)
+    :Passer à l'étape de paiement;
+else (Non)
+    :Afficher message d'erreur: "Adresse de livraison requise";
+endif
+
+stop
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+title Scénario 2 – Commande avec plusieurs articles
+
+start
+:Utilisateur connecté;
+:Ajouter plusieurs produits au panier;
+:Accéder au panier;
+:Vérifier les quantités;
+:Valider la commande;
+
+if (Commande validée?) then (Oui)
+  :Afficher résumé de commande;
+else (Non)
+  :Afficher message d’erreur;
+endif
+
+stop
+@enduml

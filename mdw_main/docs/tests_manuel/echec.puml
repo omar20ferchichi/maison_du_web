@@ -1,0 +1,21 @@
+@startuml
+title Scénario 3 – Échec du paiement
+
+start
+:Utilisateur connecté;
+:Ajouter produit au panier;
+:Aller au panier;
+:Passer la commande;
+:Remplir les infos de livraison;
+:Choisir mode de paiement (simulé en erreur);
+:Valider la commande;
+
+if (Paiement accepté?) then (Oui)
+    :Afficher confirmation;
+else (Non)
+    :Afficher message d’échec de paiement;
+    :Rester sur la page de paiement;
+endif
+
+stop
+@enduml

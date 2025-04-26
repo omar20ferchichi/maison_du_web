@@ -1,0 +1,12 @@
+@startuml
+start
+:Install Cookiecutter;
+if (Is Cookiecutter installed?) then (No)
+  :Run `pip install cookiecutter`;
+endif
+
+:Use Cookiecutter Template;
+:Run `cookiecutter https://github.com/audreyfeldroy/cookiecutter-pypackage.git`;
+
+stop
+@enduml

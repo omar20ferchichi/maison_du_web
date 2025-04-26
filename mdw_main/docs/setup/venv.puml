@@ -1,0 +1,29 @@
+@startuml
+start
+:Create Virtual Environment;
+:Run `python -m venv .venv`;
+
+if (Is the environment created successfully?) then (Yes)
+  :Activate Virtual Environment;
+  if (OS Type?) then (Windows)
+    :Run `.venv\Scripts\activate`;
+  else (Mac/Linux)
+    :Run `source .venv/bin/activate`;
+  endif
+
+  :.venv is activated job done if dependencies to b installed further steps ; 
+  :Install Dependencies;
+  :Run `pip install <package_name>`;
+
+  :Deactivate Virtual Environment;
+  :Run `deactivate`;
+
+  :Ignore .venv in Git (Optional);
+  :Run `echo ".venv/" >> .gitignore`;
+
+  stop
+else (No)
+  :Check Python installation and permissions;
+  :Retry;
+endif
+@enduml
