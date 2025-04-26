@@ -61,3 +61,26 @@ def logger(request):
     for handler in logger.handlers:
         handler.close()
         logger.removeHandler(handler)
+
+import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import tempfile
+
+@pytest.fixture(scope="function")
+def browser_fixture():
+    # Créer un dossier temporaire unique pour chaque session de test
+    temp_dir = tempfile.mkdtemp()
+
+    # Configuration des options de Chrome
+    options = Options()
+    options.add_argument("--start-maximized")
+    options.add_argument(f"--user-data-dir={temp_dir}")  # Dossier temporaire unique
+    options.add_argument("--disable-extensions")  # Facultatif, mais utile pour éviter les extensions
+
+    # Lancer le navigateur
+    driver = webdriver.Chrome(options=options)
+
+    # Assurer une fermeture propre
+    yield driver
+    driver.quit()
